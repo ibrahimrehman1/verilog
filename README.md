@@ -39,7 +39,7 @@ or or1(o1, a[0], a[1])
 ```
 
 ## Direct Assignment
-assign command to directly assign wires from one bus to another
+"assign" command to directly assign wires from one bus to another
 
 ```
 
