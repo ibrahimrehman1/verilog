@@ -1,6 +1,7 @@
 # Verilog Notes
 
 The most popular HDL and is practiced throughout the semi-conductor industry.
+It is a parallel language and easier than VHDL.
 
 ## Modules
 
@@ -55,7 +56,7 @@ Notation is -> size`encoding value
 
 ```
 
-Verilog also has a concept of names constants
+Verilog also has a concept of named constants
 
 ```
 `define ACONSTANT 5`b110001;
