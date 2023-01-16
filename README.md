@@ -1,7 +1,7 @@
 # Verilog Notes
 
 The most popular HDL and is practiced throughout the semi-conductor industry.
-It is a parallel language and easier than VHDL.
+It is a parallel language and easier than VHDL. Case-sensitive also.
 
 ## Modules
 
@@ -15,8 +15,10 @@ input i1, i2;
 // 1-bit by default
 wire or_wire, not_wire;
 
-// Built-in modules or primitives in Verilog
-// Module instantiation
+/* 
+Built-in modules or primitives in Verilog
+Module instantiation
+*/
 
 or or1(or_wire, i1, i2); // name is the component name which will be used during debugging
 not not1(not_wire, i1, i2); 
@@ -63,6 +65,19 @@ Verilog also has a concept of named constants
 
 ```
 
+## Verilog Operators
+
+Operators are of three types: unary, binary, and ternary.
+
+```
+a = ~ b; // ~ is a unary operator. b is the operand
+a = b && c; // && is a binary operator. b and c are operands
+a = b ? c : d; // ?: is a ternary operator. b, c and d are operands
+
+```
+
+
+
 ## Verilog Equality Operator
 With double equality operator, we can compare single or multi-bit numbers together, however the result would be a single-bit number i.e. 1 or 0. We are actually implementing multiple XNOR operations and they are ANDED at the end.
 
@@ -70,6 +85,7 @@ With double equality operator, we can compare single or multi-bit numbers togeth
 a[1:0] == 2`b10
 
 ```
+
 
 ## Testing Verilog using Test Bench
 We can test our module which we have coded by providing different inputs. For testing, we have to create a module also
@@ -111,3 +127,4 @@ $monitor("At time %2t, a = %d, b = %d, s = %d, c = %d", $time, a, b, s, c) // sp
 endmodule // sc_test
 
 ```
+
