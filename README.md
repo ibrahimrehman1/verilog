@@ -4,11 +4,17 @@
 - It is a parallel language and easier than VHDL. Case-sensitive and similar to C-language.
 - HDLs have notion of time i.e. gate delays etc.
 - extension is '.v'
-- Verilog supports 4 levels of abstraction i.e.
-    - Switch level: modules can be implemented in the form of switches. Here nmos and pmos are used as switches for design. e.g. mos_name instance_name(outputs, inputs)
-    - Gate level: modules are implemented in the form of gates. It is the lowest form of abstraction. Basic logic gates are available i.e. and, or, not, etc. e.g. primitive_name instance_name(outputs, inputs)
-    - Data flow level: Register transfer level. Module is defined by specifying the data flow. Design is implemented using continuous assignments, which are concurrent in nature. e.g. assign z = x & y;
-    - Behavioral level: highest level of abstraction in HDL. System is defined by its behavior. Elements like system, blocks and tasks can be used. Two important constructs are initial and always.e.g. 2*1 MUX
+
+## Levels of Abstraction:
+Verilog supports 4 levels of abstraction i.e.
+- Switch level: 
+    - modules can be implemented in the form of switches. Here nmos and pmos are used as switches for design. e.g. mos_name instance_name(outputs, inputs)
+- Gate level: 
+    - modules are implemented in the form of gates. It is the lowest form of abstraction. Basic logic gates are available i.e. and, or, not, etc. e.g. primitive_name instance_name(outputs, inputs)
+- Data flow level: 
+    - Register transfer level. Module is defined by specifying the data flow. Design is implemented using continuous assignments, which are concurrent in nature. e.g. assign z = x & y;
+- Behavioral level: 
+    - highest level of abstraction in HDL. System is defined by its behavior. Elements like system, blocks and tasks can be used. Two important constructs are initial and always.e.g. 2*1 MUX
     ```
     always@(i0, i1, sel)
     begin
@@ -16,7 +22,7 @@
             out = i1;
         else
             out = i0;
-    
+
     end
     ```
 
