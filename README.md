@@ -422,6 +422,40 @@ assign out = in1 & in2;
     3) `timescale: to define time unit and time precision for the module e.g. `timescale 10ns/1ns
 
 
+## Task and Function
+- provide a subroutine mechanism for reusability
+- Both are synthesizable
+- e.g. for task
+```
+task sum;
+    input ...
+    output ...
+    begin
+        ...
+    end
+endtask
+
+initial begin
+
+sum (...)
+end
+
+```
+
+- e.g. for function. Runs in zero simulation time thus no delays can be included into it. Returns only single output
+
+```
+function [7:0] sum;
+    input ...;
+    begin
+        ...
+    end
+
+endfunction
+
+
+```
+
 
 
 
