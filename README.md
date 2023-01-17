@@ -308,6 +308,86 @@ assign out = in1 & in2;
     2) Implicit continuous assignment delay e.g. wire #10 out = in1 & in2;
     3) Net declaration delay i.e. wire #10 out; assign out = in1 & in2;
 
+## Behavioral Modeling
+- behavior of circuit is described. Thus, highest level of abstraction in Verilog.
+- Structured Procedures:
+    - All behavioral statements are written inside always and initial blocks
+    - These blocks run in parallel
+    - Nesting not possible
+    - Activity start at 0 simulation time
+    - Initial block is once executable. We have to use begin/end also in case of multiple statements
+
+    ```
+    reg a, b, c;
+    initial
+        a = 1`b1;
+    initial
+    begin
+        b = 1`b1;
+        c = 1`b0;
+    
+    end
+
+    ```
+
+    - Always block repeats continuously throughout the duration of simulation time
+    
+    ```
+    always
+    #10 clock = ~clock;
+    initial
+    #1000 $finish
+    
+    ```
+
+- Procedural Assignment:
+    - update values of reg, integer, real or time variables
+    - They are not like continuous assignment
+    - 2 Types i.e. blocking and non-blocking assignments
+    - Blocking assignments represented by "=" and is sequential in nature. e.g. count = 0;
+    - Non-blocking assignments represented by "<=" and is concurrent in nature. e.g. reg_a[2] <= #15 1`b1; 
+    - 2 types of delays:
+        1) Regular Delay: Entire operation will be delayed e.g. #10 y = 1;
+        2) Intra-assignment delay: evaluated immediately but assigned after delay e.g. y = #5 x + z;
+
+- Block Statements:
+    - Sequence block i.e. begin/end blocks. Statements are executed sequentially. Delay is treated relative to the simulation time and prev statement
+    - Parallel block i.e. fork/join blocks. Statements are executed concurrently. Delay is treated relative to the simulation time of entering the block
+
+    ```
+    initial
+    fork
+        b = 1`b1;
+        c = 1`b0;
+    
+    join
+    ```
+
+- Conditional Statements: if-else
+    - nested if-else-if also possible
+    ```
+    if (condition) ...;
+    else if (condition) ...;
+    else ...;
+    
+    ```
+    
+- Multiway branching: case statement
+    ``` 
+    case (expression)
+        condition: ...;
+        condition: ...;
+        condition: ...;
+        default: ...;
+    endcase
+    ```
+
+- Looping constructs:
+    - for, while, repeat and forever loops
+    - while is non-synthesizable
+    - repeat iterates for a fixed no of times like 100
+    - forever loop runs until disable statement or $finish
+
 
 ## Testing Verilog using Test Bench
 We can test our module which we have coded by providing different inputs. For testing, we have to create a module also
