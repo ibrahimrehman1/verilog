@@ -87,6 +87,27 @@ xor ao1(Y, x1, x2);
 
 ```
 
+## Register Data Type
+```
+// e.g. of reg
+reg count1;
+reg [7:0] count2;
+
+// e.g. of integer, 32-bits by default and signed
+integer count;
+
+// e.g. of real, for storing floating point numbers. If assigned to integer, then rounded off
+real count;
+
+// e.g. of time, used to store simulation time. Non-synthesizable i.e. ignored during synthesis
+time new_time;
+initial
+begin
+new_time = $time; // current simulation time
+end
+
+```
+
 
 ## Modules
 
