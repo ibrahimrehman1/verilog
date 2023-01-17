@@ -348,6 +348,11 @@ assign out = in1 & in2;
     #10 clock = ~clock;
     initial
     #1000 $finish
+
+    always @(posedge clear or negedge clock)
+    #10 clock = ~clock;
+    initial
+    #1000 $finish
     
     ```
 
