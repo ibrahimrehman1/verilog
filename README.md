@@ -405,6 +405,26 @@ assign out = in1 & in2;
     - forever loop runs until disable statement or $finish
 
 
+## Compiler Directives and System Tasks
+- System tasks are used to generate input and outputs during simulation. Names begin with $. Following are the types:
+    1) Internal Variable Monitoring: $display adds a new line and displays a message while $write does not add a new line. $monitor display everytime a parameter is changed. $strobe displays the parameter at the very end of the simulation time unit rather than exactly when it executed like with $display.
+        e.g. new_reg = 1`b1; $monitor ("hello world %b", new_reg);
+
+    $random generates a random number everytime it is called
+
+    2) Simulation control tasks: $reset resets the simulation back to 0, $stop halts the simulator and puts it in interactive mode so that user can enter something and $finish exits the simulator
+
+    3) Simulation time-related tasks: $time, $stime and $realtime return current simulation time in 64-bits, 32-bits and real number respectively
+
+- Compiler Directives may be used to control the compilation of verilog description. tick (`) denotes a compiler directive.
+    1) `define: to define a macro and its value e.g. `define count 8;
+    2) `include: used to add contents of some file e.g. `include "disciplines.vams";
+    3) `timescale: to define time precision and time unit for the module e.g. `timescale 10ns/1ns
+
+
+
+
+
 ## Testing Verilog using Test Bench
 We can test our module which we have coded by providing different inputs. For testing, we have to create a module also
 
