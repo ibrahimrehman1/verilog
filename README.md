@@ -37,6 +37,28 @@ Verilog supports 4 levels of abstraction i.e.
 1) Top-down design
 2) Bottom-up design
 
+## Data Types
+1) Register data type
+    - data storage elements and holds prev value until a new value is assigned
+    - declared using 'reg' and default value is 'X'
+    - represents a class of data types such as reg, integer, real, time etc.
+2) Net data type
+    - connection b/w hardware elements
+    - must be continuously driven i.e. cannot use it to store values
+    - default value is 'Z' and declared using 'wire'
+    - represents a class of data types such as wire, wand, wor, tri, triand, trior, trireg, etc.
+
+## Values and Signal strength
+- 4 value levels are supported i.e. 0, 1, X and Z which are false, true, unknown logic value and high impedance respectively
+- 8 signal strengths are supported i.e. highz, small, medium, weak, large, pull, strong, supply and respective types are high impedance, storage, storage, driving, storage, driving, driving, driving. The degree of strength is in increasing order.
+- If signals of unequal strengths are driven on a wire then the stronger one will prevail at the output, while in case of equal strengths the output is unknown i.e. X
+
+## Port assignments
+Inputs, outputs and inouts. Only inout is bi-directional while input and output are uni-directional
+1) Input - internally net while externally reg or net
+2) Output - internally net or reg while externally net
+3) Inout - always wire data type
+
 
 ## Modules
 
