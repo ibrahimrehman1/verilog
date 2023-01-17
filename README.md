@@ -139,18 +139,21 @@ assign bus[3:0] = z[12:9];
 ```
 
 ## Verilog constants
-Notation is -> size`encoding value
+- Notation is -> size`encoding value
 ```
 5`b11001 \\ 5-bit binary number with value 110001
 
 ```
 
-Verilog also has a concept of named constants
+- Verilog also has a concept of named constants
 
 ```
 `define ACONSTANT 5`b110001;
 
 ```
+
+- underscores can also be used to increase readability i.e. 5`b1_1001
+- Extensions can also be applied to complete the width i.e. 4`bX0 which is XXX0. Zero, X and Z extension possible
 
 ## Verilog Operators
 
