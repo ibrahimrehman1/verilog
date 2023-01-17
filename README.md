@@ -26,7 +26,21 @@ Verilog supports 4 levels of abstraction i.e.
     end
     ```
 
+## Simulation
+- Used to verify the functionality of that digital design that is modeled using HDL like Verilog
+- Input is a verilog module and test bench in response to which result is evaluated
+
+## Synthesis
+- The digital design i.e. modeled using HDL is translated into an implementation consisting of logic gates or our RTL is converted to a netlist
+
+## Design methodologies
+1) Top-down design
+2) Bottom-up design
+
+
 ## Modules
+
+Basic building block in Verilog. Nesting modules is illegal but can do module instantiation
 
 ```
 // Code will run concurrently so order does not matter
