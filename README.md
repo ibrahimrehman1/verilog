@@ -197,6 +197,47 @@ a[1:0] == 2`b10
 
 ```
 
+## Vectors, Arrays, Memories, Parameters, Strings
+- reg or net data type can be declared as vectors i.e. multiple bit width. Vectors represents buses.
+
+```
+reg [15:0] count;
+wire [15:0] count1, count2, count3;
+```
+
+- Arrays are allowed for reg, integer, time, real, vector data types. Multi-dimensional arrays are possible
+
+```
+reg [15:0] count [7:0] // array of 8 16-bit numbers
+reg count [7:0]; // array of 8 1-bit numbers
+
+```
+
+- Memories are modeled as 1-dimensional array of registers. Used to model register files, ROMs and RAMs. Each element is called a word or element.
+
+```
+reg mem_1bit [0:1023]; // memory with 1K 1-bit words
+reg [7:0] mem_8bit [0:1023]; // memory with 1K 8-bit words
+
+```
+
+- Parameters cannot be used as variables as they are constant values but they can be overriden for each module instance at compile time.
+
+```
+parameter width_new = 8;
+parameter depth_new = 8;
+
+```
+
+- Strings can be stored in reg. Sequence of characters enclosed by double quotes. Each character is 8-bit. Some special characters of strings are \n, \t, \%, \\, \"
+
+```
+reg [8*10:1] string_value; // Declaration
+string_value = "VLSI Point"; // assignment
+
+```
+
+
 
 ## Testing Verilog using Test Bench
 We can test our module which we have coded by providing different inputs. For testing, we have to create a module also
