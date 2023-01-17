@@ -209,7 +209,7 @@ Verilog provides various types of operators:
     - It returns logical value of 1 or 0 in case of true or false respectively
 
 5) Relational Operators:
-    - >, <, >=, <=
+    - These are >, <, >=, <=
     - returns logical value of 1 or 0
 
 6) Reduction Operators:
