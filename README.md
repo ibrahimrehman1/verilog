@@ -419,7 +419,7 @@ assign out = in1 & in2;
 - Compiler Directives may be used to control the compilation of verilog description. tick (`) denotes a compiler directive.
     1) `define: to define a macro and its value e.g. `define count 8;
     2) `include: used to add contents of some file e.g. `include "disciplines.vams";
-    3) `timescale: to define time precision and time unit for the module e.g. `timescale 10ns/1ns
+    3) `timescale: to define time unit and time precision for the module e.g. `timescale 10ns/1ns
 
 
 
