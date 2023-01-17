@@ -330,10 +330,21 @@ assign out = in1 & in2;
 
     ```
 
-    - Always block repeats continuously throughout the duration of simulation time
+    - Always block repeats continuously throughout the duration of simulation time. Can also specify a sensitivity list i.e. when value changing it is executed again.
     
     ```
     always
+    #10 clock = ~clock;
+    initial
+    #1000 $finish
+    
+
+    always @(a, b, c)
+    #10 clock = ~clock;
+    initial
+    #1000 $finish
+
+    always @(*)
     #10 clock = ~clock;
     initial
     #1000 $finish
