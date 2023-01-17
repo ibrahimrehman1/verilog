@@ -204,7 +204,7 @@ Verilog provides various types of operators:
     - bitwise and(&), bitwise or(|), bitwise negation(~), bitwise xor(^), bitwise xnor(~^ or ^~)
 
 4) Equality Operators:
-    - logical equality (==) and logical inequality (!=), synthesizable
+    - logical equality (==) and logical inequality (!=), synthesizable. If any bit is X, result is evaluated to X
     - case equality (===) and case inequality (!==), non-synthesizable
     - It returns logical value of 1 or 0 in case of true or false respectively
 
@@ -272,6 +272,28 @@ string_value = "VLSI Point"; // assignment
 
 ```
 
+## Gate Level Modeling
+- Lowest level of abstraction
+- Two types of gates i.e. 
+    1) Basic gates (And/Or, Buf/Not):
+        - one scalar output and multiple scalar inputs for And/Or
+        - e.g. and, or, xor, xnor, nand, nor
+        - one scalar input and one or more scalar outputs for Buf/Not gate
+        - e.g. buf and not
+    2) Bufif/Notif gates
+        - These gates have an additional control signal otherwise output will be in high impedance state
+        - e.g. bufif1, bufif0, notif1, notif0, where 0 -> active low and 1 -> active high
+
+- Gate Delays from input to output of gates
+    1) Rise delay i.e. when output transition from 0, x or z to 1
+    2) Fall delay i.e. when output transition from 1, x or z to 0
+    3) Turn-off delay i.e. when output transition from other value to z whereas if it transists to x then minimum of three delays are considered
+
+```
+and #(5) a1(outputs, inputs); // 5 unit delay for all transitions
+or #(5, 4, 3) o1(outputs, inputs); // for rise, fall and turn-off delays
+
+```
 
 
 ## Testing Verilog using Test Bench
