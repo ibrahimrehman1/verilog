@@ -59,6 +59,34 @@ Inputs, outputs and inouts. Only inout is bi-directional while input and output 
 2) Output - internally net or reg while externally net
 3) Inout - always wire data type
 
+## Net Data Type
+```
+// e.g. of wire
+input a, b;
+output sum, carry;
+wire sum, carry;
+assign sum = a ^ b;
+assign carry = a & b;
+
+// e.g. of wand/wor. If wire was used then results would have been undeterministic.
+input A, B, C, D;
+output y;
+wand y;
+
+assign y = A & B;
+assign y = C | D;
+
+// e.g. supply1 and supply0
+
+supply1 vdd;
+supply0 gnd;
+
+and a1(x1, A, gnd);
+or o1(x2, B, vdd);
+xor ao1(Y, x1, x2);
+
+```
+
 
 ## Modules
 
@@ -100,7 +128,7 @@ or or1(o1, a[0], a[1])
 ```
 
 ## Direct Assignment
-"assign" command to directly assign wires from one bus to another
+"assign" command to directly assign wires from one bus to another. Have to use the net data type.
 
 ```
 
