@@ -148,7 +148,7 @@ or or1(o1, a[0], a[1])
 
 ```
 
-## Direct Assignment
+## Direct/Continuous Assignment
 "assign" command to directly assign wires from one bus to another. Have to use the net data type.
 
 ```
@@ -294,6 +294,19 @@ and #(5) a1(outputs, inputs); // 5 unit delay for all transitions
 or #(5, 4, 3) o1(outputs, inputs); // for rise, fall and turn-off delays
 
 ```
+
+## Dataflow Modeling
+- To implement more complex systems
+- A continuous assignment replaces gates in the description of the circuits. 'assign' keyword is used. Net datatype is a requirement
+```
+wire out;
+assign out = in1 & in2;
+```
+- In implicit continuous assignment, we donot have to explicitly declare a net e.g. wire out = in1 & in2; is enough.
+- Delays can be used to control the assignment of values to the wire on LHS. Three ways:
+    1) Regular assignment delay e.g. assign #10 out = in1 & in2; When in1 or in2 changes, there will be a delay of 10 units, then recomputation and assignment will happen but if the change is less than the delay i.e. 10, then no recomputation will happen. This is then known as inertial delay.
+    2) Implicit continuous assignment delay e.g. wire #10 out = in1 & in2;
+    3) Net declaration delay i.e. wire #10 out; assign out = in1 & in2;
 
 
 ## Testing Verilog using Test Bench
