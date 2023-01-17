@@ -425,7 +425,7 @@ assign out = in1 & in2;
 ## Task and Function
 - provide a subroutine mechanism for reusability
 - Both are synthesizable
-- e.g. for task
+- e.g. for task. Can call other task and functions
 ```
 task sum;
     input ...
@@ -442,7 +442,7 @@ end
 
 ```
 
-- e.g. for function. Runs in zero simulation time thus no delays can be included into it. Returns only single output
+- e.g. for function. Runs in zero simulation time thus no delays can be included into it. Returns only single output. Can only call other functions and not tasks
 
 ```
 function [7:0] sum;
