@@ -187,15 +187,50 @@ a = b ? c : d; // ?: is a ternary operator. b, c and d are operands
 
 ```
 
+Verilog provides various types of operators:
+1) Arithmetic Operators:
+    - Unary operators are + and -
+    - Binary operatos are *, /, +, -, %, **
+    - If any operand bit is X then entire result will be evaluated to X
+    - For modulus, sign of first operand will be considered
+
+2) Logical Operators:
+    - logical-and (&&), logical-or(||) and logical-not(!)
+    - Always evaluated to a 1-bit value.
+    - If any operand bit is X then entire result will be evaluated to X
+
+3) Bitwise Operators:
+    - performs bit-by-bit operation on two operands
+    - bitwise and(&), bitwise or(|), bitwise negation(~), bitwise xor(^), bitwise xnor(~^ or ^~)
+
+4) Equality Operators:
+    - logical equality (==) and logical inequality (!=), synthesizable
+    - case equality (===) and case inequality (!==), non-synthesizable
+    - It returns logical value of 1 or 0 in case of true or false respectively
+
+5) Relational Operators:
+    - >, <, >=, <=
+    - returns logical value of 1 or 0
+
+6) Reduction Operators:
+    - and(&), or(|), nand(~&), nor(~|), xor(^), xnor(~^ or ^~)
+    - applied on single operand and yield a 1-bit result
+
+7) Shift Operators:
+    - right shift (>>) and left shift (<<), 0 is filled in LSB or MSB bits
+    - arithmetic right shift (>>>) and arithmetic left shift (<<<), have to consider signs i.e. have to preserve MSB e.g. 4`b1100 >>> 1 would result 4`b11100
+
+8) Concatenation Operator:
+    - Append multiple operands.
+    - Operands must be sized
+    - e.g. Y = {B, C};
+
+9) Conditional Operators:
+    - takes 3 operands
+    - e.g. assign out = (A == 3) ? (control ? x: y) : (control ? m: n)
+    - similar to MUX
 
 
-## Verilog Equality Operator
-With double equality operator, we can compare single or multi-bit numbers together, however the result would be a single-bit number i.e. 1 or 0. We are actually implementing multiple XNOR operations and they are ANDED at the end.
-
-```
-a[1:0] == 2`b10
-
-```
 
 ## Vectors, Arrays, Memories, Parameters, Strings
 - reg or net data type can be declared as vectors i.e. multiple bit width. Vectors represents buses.
