@@ -230,7 +230,7 @@ Verilog provides various types of operators:
     - e.g. assign out = (A == 3) ? (control ? x: y) : (control ? m: n)
     - similar to MUX
 
-
+Operator precedence is Unary, multiply, divide and modulus, add and subtract, shift, relational, equality, reduction, logical, conditional
 
 ## Vectors, Arrays, Memories, Parameters, Strings
 - reg or net data type can be declared as vectors i.e. multiple bit width. Vectors represents buses.
