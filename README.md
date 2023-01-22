@@ -68,7 +68,7 @@ wire sum, carry;
 assign sum = a ^ b;
 assign carry = a & b;
 
-// e.g. of wand/wor. If wire was used then results would have been undeterministic.
+// e.g. of wand/wor. If wire was not used then results would have been undeterministic.
 input A, B, C, D;
 output y;
 wand y;
@@ -201,7 +201,7 @@ Verilog provides various types of operators:
 
 3) Bitwise Operators:
     - performs bit-by-bit operation on two operands
-    - bitwise and(&), bitwise or(|), bitwise negation(~), bitwise xor(^), bitwise xnor(~^ or ^~)
+    - bitwise and(&), bitwise or(|), bitwise negation(~), bitwise xor(^), bitwise xnor( ~^ or ^~ )
 
 4) Equality Operators:
     - logical equality (==) and logical inequality (!=), synthesizable. If any bit is X, result is evaluated to X
@@ -213,7 +213,7 @@ Verilog provides various types of operators:
     - returns logical value of 1 or 0
 
 6) Reduction Operators:
-    - and(&), or(|), nand(~&), nor(~|), xor(^), xnor(~^ or ^~)
+    - and(&), or(|), nand(\~&), nor(\~|), xor(^), xnor(\~^ or ^\~)
     - applied on single operand and yield a 1-bit result
 
 7) Shift Operators:
